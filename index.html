@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Anaya (psycho🎀)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-butter: #FFFDF0;
+            --yellow-pastel: #FFF3B0;
+            --yellow-warm: #FFE169;
+            --yellow-deep: #F5B700;
+            --pink-ribbon: #FF8DA1;
+            --brown-ink: #4A3525;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-butter);
+            color: var(--brown-ink);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100dvh;
+            width: 100vw;
+            position: relative;
+            transition: background-color 0.7s ease;
+        }
+
+        /* Cute Kawaii Stationery Gingham + Polka Backdrop */
+        .kawaii-backdrop {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(#FFE57F 2px, transparent 2px),
+                linear-gradient(to right, rgba(255, 243, 176, 0.35) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 243, 176, 0.35) 1px, transparent 1px);
+            background-size: 28px 28px, 56px 56px, 56px 56px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        h1, h2, .font-display {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Kawaii 3D Card Styling */
+        .kawaii-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3.5px solid #4A3525;
+            box-shadow: 0 10px 0 #4A3525, 0 18px 30px rgba(245, 183, 0, 0.22);
+            border-radius: 32px;
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Decorative corner lace bows on card */
+        .card-stitch {
+            border: 2px dashed #FFE169;
+            border-radius: 24px;
+            padding: 20px 18px;
+        }
+
+        /* Kawaii 3D Pill Buttons */
+        .btn-kawaii-primary {
+            background: linear-gradient(180deg, #FFEA79 0%, #FFD23F 100%);
+            border: 3px solid #4A3525;
+            box-shadow: 0 5px 0 #4A3525;
+            color: #4A3525;
+            font-family: 'Fredoka', sans-serif;
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .btn-kawaii-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #4A3525;
+        }
+
+        .btn-kawaii-pink {
+            background: linear-gradient(180deg, #FFB3C1 0%, #FF8DA1 100%);
+            border: 3px solid #4A3525;
+            box-shadow: 0 5px 0 #4A3525;
+            color: #4A3525;
+            font-family: 'Fredoka', sans-serif;
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .btn-kawaii-pink:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #4A3525;
+        }
+
+        .btn-kawaii-secondary {
+            background: #FFFDF7;
+            border: 2.5px solid #4A3525;
+            box-shadow: 0 4px 0 #4A3525;
+            color: #6E5039;
+            font-family: 'Fredoka', sans-serif;
+            transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Floating SVG Flowers Animation */
+        @keyframes floatFlower {
+            0% {
+                transform: translateY(108vh) rotate(0deg) scale(0.85);
+                opacity: 0;
+            }
+            12% {
+                opacity: 0.92;
+            }
+            88% {
+                opacity: 0.92;
+            }
+            100% {
+                transform: translateY(-14vh) rotate(360deg) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        .floating-svg-item {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatFlower linear infinite;
+        }
+
+        @keyframes bobMascot {
+            0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+            50% { transform: translateY(-8px) rotate(1.5deg); }
+        }
+
+        .mascot-bob {
+            animation: bobMascot 2.8s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.07); }
+            50% { transform: scale(0.97); }
+            75% { transform: scale(1.05); }
+        }
+
+        .heartbeat-anim {
+            animation: heartbeat 0.95s ease-in-out infinite;
+        }
+
+        @keyframes cardPop {
+            0% { opacity: 0; transform: scale(0.86) translateY(16px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .pop-enter {
+            animation: cardPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes shakeCard {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-7px) rotate(-1.5deg); }
+            40% { transform: translateX(7px) rotate(1.5deg); }
+            60% { transform: translateX(-5px) rotate(-1deg); }
+            80% { transform: translateX(5px) rotate(1deg); }
+        }
+
+        .shake-it {
+            animation: shakeCard 0.42s ease-in-out;
+        }
+
+        /* Corner Flower Spin */
+        @keyframes slowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .spin-slow {
+            animation: slowSpin 14s linear infinite;
+        }
+
+        /* Receipt perforation */
+        .receipt-box {
+            background: #FFFDF7;
+            border: 2.5px dashed #4A3525;
+            border-radius: 18px;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4">
+
+    <!-- Background Stationery Pattern -->
+    <div class="kawaii-backdrop"></div>
+
+    <!-- Floating Kawaii SVG Flowers & Ribbons Container -->
+    <div id="flowerContainer" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <!-- Automatic Background Music (Plays music.mp3 automatically) -->
+    <audio id="bgMusic" src="music.mp3" autoplay loop playsinline preload="auto"></audio>
+
+    <!-- Main Center Card -->
+    <main class="w-full max-w-[375px] z-10 flex flex-col items-center">
+        
+        <div id="mainCard" class="kawaii-card w-full p-2.5">
+            
+            <!-- Cute Top Corner SVG Daisy Badges (Pure Kawaii Illustration, No Emojis) -->
+            <div class="absolute -top-5 -left-4 w-11 h-11 spin-slow pointer-events-none z-20">
+                <svg viewBox="0 0 64 64" class="w-full h-full drop-shadow-sm">
+                    <g fill="#FFE169" stroke="#4A3525" stroke-width="3">
+                        <circle cx="32" cy="12" r="10"/>
+                        <circle cx="32" cy="52" r="10"/>
+                        <circle cx="12" cy="32" r="10"/>
+                        <circle cx="52" cy="32" r="10"/>
+                        <circle cx="18" cy="18" r="10"/>
+                        <circle cx="46" cy="46" r="10"/>
+                        <circle cx="46" cy="18" r="10"/>
+                        <circle cx="18" cy="46" r="10"/>
+                    </g>
+                    <circle cx="32" cy="32" r="11" fill="#FFFDF0" stroke="#4A3525" stroke-width="3"/>
+                    <circle cx="28.5" cy="30.5" r="1.8" fill="#4A3525"/>
+                    <circle cx="35.5" cy="30.5" r="1.8" fill="#4A3525"/>
+                    <path d="M29 34.5 Q32 37 35 34.5" stroke="#4A3525" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <!-- Top Right Kawaii Pastel Ribbon SVG -->
+            <div class="absolute -top-5 -right-3 w-12 h-12 pointer-events-none z-20" style="transform: rotate(14deg);">
+                <svg viewBox="0 0 64 64" class="w-full h-full drop-shadow-sm">
+                    <path d="M32 32 C16 14, 6 22, 12 36 C16 44, 26 38, 32 32 Z" fill="#FF8DA1" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M32 32 C48 14, 58 22, 52 36 C48 44, 38 38, 32 32 Z" fill="#FF8DA1" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M28 35 L18 54 L26 51 L29 57 L32 36" fill="#FF8DA1" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M36 35 L46 54 L38 51 L35 57 L32 36" fill="#FF8DA1" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                    <circle cx="32" cy="32" r="6" fill="#FFE169" stroke="#4A3525" stroke-width="3"/>
+                </svg>
+            </div>
+
+            <div class="card-stitch flex flex-col items-center text-center">
+                
+                <!-- Recipient Tag Pill (No emojis, pure Kawaii badge) -->
+                <div class="inline-flex items-center gap-2 bg-[#FFF3B0] border-2 border-[#4A3525] px-3.5 py-1 rounded-full text-xs font-bold tracking-wide text-[#4A3525] mb-3 shadow-[0_2px_0_#4A3525]">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="#FF8DA1" stroke="#4A3525" stroke-width="2.2">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span>SECRET NOTE FOR ANAYA</span>
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="#FF8DA1" stroke="#4A3525" stroke-width="2.2">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+
+                <!-- Reactive Custom Kawaii Chibi Mascot with Yellow Flower & Pink Ribbon -->
+                <div id="mascotWrapper" class="mascot-bob my-1 relative w-36 h-36 flex items-center justify-center">
+                    <svg id="mascotSvg" viewBox="0 0 200 185" class="w-full h-full overflow-visible">
+                        <!-- Soft Ground Shadow -->
+                        <ellipse cx="100" cy="172" rx="48" ry="8" fill="rgba(74, 53, 37, 0.12)"/>
+
+                        <!-- Little Floating Sparkles Around Mascot -->
+                        <path d="M26 52 Q32 52 32 44 Q32 52 38 52 Q32 52 32 60 Q32 52 26 52" fill="#FFD23F" stroke="#4A3525" stroke-width="2"/>
+                        <path d="M168 42 Q173 42 173 35 Q173 42 178 42 Q173 42 173 49 Q173 42 168 42" fill="#FF8DA1" stroke="#4A3525" stroke-width="2"/>
+
+                        <!-- Ears -->
+                        <circle cx="55" cy="54" r="23" fill="#FFF3B0" stroke="#4A3525" stroke-width="4.5"/>
+                        <circle cx="55" cy="54" r="12" fill="#FFCCD5"/>
+                        
+                        <circle cx="145" cy="54" r="23" fill="#FFF3B0" stroke="#4A3525" stroke-width="4.5"/>
+                        <circle cx="145" cy="54" r="12" fill="#FFCCD5"/>
+
+                        <!-- Signature Pink Bow + Yellow Daisy on Right Ear -->
+                        <g transform="translate(124, 24) rotate(16)">
+                            <path d="M18 15 C5 2, -2 12, 4 22 C8 27, 15 20, 18 15 Z" fill="#FF8DA1" stroke="#4A3525" stroke-width="3.5" stroke-linejoin="round"/>
+                            <path d="M18 15 C31 2, 38 12, 32 22 C28 27, 21 20, 18 15 Z" fill="#FF8DA1" stroke="#4A3525" stroke-width="3.5" stroke-linejoin="round"/>
+                            <circle cx="18" cy="15" r="5" fill="#FFE169" stroke="#4A3525" stroke-width="3"/>
+                        </g>
+
+                        <!-- Cute Little Yellow Sprout / Flower on Top of Head -->
+                        <g transform="translate(92, 18)">
+                            <path d="M8 22 Q8 10 14 6" stroke="#4A3525" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="4" cy="11" rx="6" ry="3.5" transform="rotate(-25 4 11)" fill="#A3E635" stroke="#4A3525" stroke-width="2.5"/>
+                            <circle cx="15" cy="5" r="5.5" fill="#FFE169" stroke="#4A3525" stroke-width="2.5"/>
+                            <circle cx="15" cy="5" r="2" fill="#FFFDF0"/>
+                        </g>
+
+                        <!-- Chubby Body -->
+                        <path d="M64 128 C54 155, 66 168, 100 168 C134 168, 146 155, 136 128 Z" fill="#FFE169" stroke="#4A3525" stroke-width="4.5" stroke-linejoin="round"/>
+                        <!-- Cute White Apron / Bib with Daisy -->
+                        <path d="M78 134 C78 152, 122 152, 122 134 Z" fill="#FFFDF0" stroke="#4A3525" stroke-width="3"/>
+
+                        <!-- Main Chubby Head -->
+                        <rect x="40" y="42" width="120" height="96" rx="47" fill="#FFF9D2" stroke="#4A3525" stroke-width="4.5"/>
+
+                        <!-- Rosy Kawaii Cheeks -->
+                        <ellipse id="cheekL" cx="62" cy="99" rx="11" ry="6.5" fill="#FF8DA1" opacity="0.75"/>
+                        <ellipse id="cheekR" cx="138" cy="99" rx="11" ry="6.5" fill="#FF8DA1" opacity="0.75"/>
+
+                        <!-- Dynamic Eyes Group -->
+                        <g id="eyesNormal">
+                            <circle cx="75" cy="86" r="7" fill="#4A3525"/>
+                            <circle cx="72.5" cy="83.5" r="2.6" fill="#FFFFFF"/>
+                            <circle cx="77" cy="88" r="1.3" fill="#FFFFFF"/>
+
+                            <circle cx="125" cy="86" r="7" fill="#4A3525"/>
+                            <circle cx="122.5" cy="83.5" r="2.6" fill="#FFFFFF"/>
+                            <circle cx="127" cy="88" r="1.3" fill="#FFFFFF"/>
+                        </g>
+
+                        <!-- Pleading / Sparkly Huge Anime Eyes (Hidden by default) -->
+                        <g id="eyesSparkle" class="hidden">
+                            <circle cx="75" cy="86" r="9.5" fill="#4A3525"/>
+                            <circle cx="72" cy="82.5" r="4" fill="#FFFFFF"/>
+                            <circle cx="78" cy="89" r="2" fill="#FFFFFF"/>
+                            <circle cx="125" cy="86" r="9.5" fill="#4A3525"/>
+                            <circle cx="122" cy="82.5" r="4" fill="#FFFFFF"/>
+                            <circle cx="128" cy="89" r="2" fill="#FFFFFF"/>
+                        </g>
+
+                        <!-- Shy / Nervous Squint Eyes (Hidden by default) -->
+                        <g id="eyesShy" class="hidden">
+                            <path d="M66 86 Q75 77 84 86" stroke="#4A3525" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                            <path d="M116 86 Q125 77 134 86" stroke="#4A3525" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Suspicious Side-Eye (Hidden by default) -->
+                        <g id="eyesSide" class="hidden">
+                            <ellipse cx="75" cy="86" rx="8" ry="6" fill="#FFFFFF" stroke="#4A3525" stroke-width="3.5"/>
+                            <circle cx="79" cy="86" r="4" fill="#4A3525"/>
+                            <ellipse cx="125" cy="86" rx="8" ry="6" fill="#FFFFFF" stroke="#4A3525" stroke-width="3.5"/>
+                            <circle cx="129" cy="86" r="4" fill="#4A3525"/>
+                        </g>
+
+                        <!-- Nose & Mouth -->
+                        <ellipse cx="100" cy="92" rx="4.5" ry="3.2" fill="#4A3525"/>
+                        <path id="mouthPath" d="M92 99 Q96 105 100 99 Q104 105 108 99" stroke="#4A3525" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+                        <!-- Sweat Drop (Hidden by default) -->
+                        <path id="sweatDrop" class="hidden" d="M150 62 C150 62 157 73 157 78 C157 82 154 85 150 85 C146 85 143 82 143 78 C143 73 150 62 150 62 Z" fill="#7DD3FC" stroke="#4A3525" stroke-width="2.5"/>
+
+                        <!-- Troll Rich Sunglasses (Hidden until Step 12!) -->
+                        <g id="coolGlasses" class="hidden">
+                            <path d="M42 80 L158 80" stroke="#4A3525" stroke-width="4.5" stroke-linecap="round"/>
+                            <rect x="54" y="75" width="38" height="22" rx="5" fill="#1F2937" stroke="#4A3525" stroke-width="3.5"/>
+                            <rect x="108" y="75" width="38" height="22" rx="5" fill="#1F2937" stroke="#4A3525" stroke-width="3.5"/>
+                            <line x1="60" y1="92" x2="73" y2="79" stroke="#FFF" stroke-width="2.5" stroke-linecap="round"/>
+                            <line x1="114" y1="92" x2="127" y2="79" stroke="#FFF" stroke-width="2.5" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Cute Paws -->
+                        <ellipse id="pawL" cx="68" cy="133" rx="13" ry="10" fill="#FFF9D2" stroke="#4A3525" stroke-width="4" transform="rotate(18 68 133)"/>
+                        <ellipse id="pawR" cx="132" cy="133" rx="13" ry="10" fill="#FFF9D2" stroke="#4A3525" stroke-width="4" transform="rotate(-18 132 133)"/>
+                    </svg>
+                </div>
+
+                <!-- Question & Suspense Box (Emojis allowed ONLY inside here & buttons!) -->
+                <div id="questionBox" class="w-full bg-[#FFFDF4] border-2 border-[#4A3525] rounded-2xl p-4 mb-4 shadow-[inset_0_2px_0_rgba(255,225,105,0.4)]">
+                    <h1 id="titleText" class="text-[21px] sm:text-[22px] font-bold text-[#4A3525] leading-snug mb-2">
+                        Hey Anaya (psycho🎀)...<br>I wanna ask u something 👉👈
+                    </h1>
+                    <p id="subText" class="text-sm font-semibold text-[#7A593E] leading-relaxed">
+                        Wait before you tap anything... are you sitting down right now?? 🪑👀
+                    </p>
+                </div>
+
+                <!-- Interactive Answer Buttons Area -->
+                <div id="buttonContainer" class="w-full flex flex-col gap-3 relative min-h-[115px] justify-center items-center">
+                    <!-- Dynamic buttons injected by JS -->
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // ==========================================
+        // 1. KAWAII SVG FLOWER & RIBBON GENERATOR
+        //    (Zero emojis in background — 100% custom Kawaii art)
+        // ==========================================
+        const flowerContainer = document.getElementById('flowerContainer');
+
+        const kawaiiSvgTemplates = [
+            // 1. Smiling Pastel Yellow Daisy
+            `<svg viewBox="0 0 64 64" class="w-full h-full">
+                <g fill="#FFE169" stroke="#4A3525" stroke-width="3">
+                    <circle cx="32" cy="13" r="10"/><circle cx="32" cy="51" r="10"/>
+                    <circle cx="13" cy="32" r="10"/><circle cx="51" cy="32" r="10"/>
+                    <circle cx="18" cy="18" r="10"/><circle cx="46" cy="46" r="10"/>
+                    <circle cx="46" cy="18" r="10"/><circle cx="18" cy="46" r="10"/>
+                </g>
+                <circle cx="32" cy="32" r="11" fill="#FFFDF0" stroke="#4A3525" stroke-width="3"/>
+                <circle cx="28.5" cy="30.5" r="1.8" fill="#4A3525"/>
+                <circle cx="35.5" cy="30.5" r="1.8" fill="#4A3525"/>
+                <path d="M29 34.5 Q32 37 35 34.5" stroke="#4A3525" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>`,
+
+            // 2. White & Butter Chamomile Flower
+            `<svg viewBox="0 0 64 64" class="w-full h-full">
+                <g fill="#FFFFFF" stroke="#4A3525" stroke-width="3">
+                    <ellipse cx="32" cy="12" rx="8" ry="11"/>
+                    <ellipse cx="32" cy="52" rx="8" ry="11"/>
+                    <ellipse cx="12" cy="32" rx="11" ry="8"/>
+                    <ellipse cx="52" cy="32" rx="11" ry="8"/>
+                    <ellipse cx="18" cy="18" rx="9" ry="9"/>
+                    <ellipse cx="46" cy="46" rx="9" ry="9"/>
+                    <ellipse cx="46" cy="18" rx="9" ry="9"/>
+                    <ellipse cx="18" cy="46" rx="9" ry="9"/>
+                </g>
+                <circle cx="32" cy="32" r="11" fill="#FFD23F" stroke="#4A3525" stroke-width="3"/>
+                <circle cx="28.5" cy="31" r="1.7" fill="#4A3525"/>
+                <circle cx="35.5" cy="31" r="1.7" fill="#4A3525"/>
+                <path d="M29.5 34.5 Q32 36.5 34.5 34.5" stroke="#4A3525" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>`,
+
+            // 3. Five-Petal Golden Buttercup Blossom
+            `<svg viewBox="0 0 64 64" class="w-full h-full">
+                <g fill="#FFF099" stroke="#4A3525" stroke-width="3">
+                    <circle cx="32" cy="14" r="12"/>
+                    <circle cx="50" cy="27" r="12"/>
+                    <circle cx="43" cy="48" r="12"/>
+                    <circle cx="21" cy="48" r="12"/>
+                    <circle cx="14" cy="27" r="12"/>
+                </g>
+                <circle cx="32" cy="33" r="9" fill="#FF8DA1" stroke="#4A3525" stroke-width="3"/>
+            </svg>`,
+
+            // 4. Kawaii Pastel Yellow & Pink Ribbon Bow
+            `<svg viewBox="0 0 64 64" class="w-full h-full">
+                <path d="M32 32 C16 14, 6 22, 12 36 C16 44, 26 38, 32 32 Z" fill="#FFE169" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M32 32 C48 14, 58 22, 52 36 C48 44, 38 38, 32 32 Z" fill="#FFE169" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M28 35 L19 52 L27 49 L30 55 L32 36" fill="#FFE169" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M36 35 L45 52 L37 49 L34 55 L32 36" fill="#FFE169" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="32" cy="32" r="6" fill="#FF8DA1" stroke="#4A3525" stroke-width="3"/>
+            </svg>`,
+
+            // 5. Kawaii Twinkle 4-Point Star
+            `<svg viewBox="0 0 64 64" class="w-full h-full">
+                <path d="M32 6 Q32 32 58 32 Q32 32 32 58 Q32 32 6 32 Q32 32 32 6 Z" fill="#FFD23F" stroke="#4A3525" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="32" cy="32" r="3.5" fill="#FFFDF0"/>
+            </svg>`
+        ];
+
+        function createFloatingFlowers(count = 16) {
+            flowerContainer.innerHTML = '';
+            for (let i = 0; i < count; i++) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'floating-svg-item';
+                const size = 24 + Math.floor(Math.random() * 20);
+                wrapper.style.width = `${size}px`;
+                wrapper.style.height = `${size}px`;
+                wrapper.style.left = `${Math.random() * 94}vw`;
+                wrapper.style.animationDuration = `${8 + Math.random() * 9}s`;
+                wrapper.style.animationDelay = `${Math.random() * 6}s`;
+                wrapper.innerHTML = kawaiiSvgTemplates[i % kawaiiSvgTemplates.length];
+                flowerContainer.appendChild(wrapper);
+            }
+        }
+        createFloatingFlowers(18);
+
+        // ==========================================
+        // 2. AUTOMATIC BACKGROUND MUSIC SYSTEM
+        //    (Plays music.mp3 automatically on open / first touch)
+        // ==========================================
+        let audioCtx = null;
+        let isMusicPlaying = false;
+        let usingSynthFallback = false;
+        let synthTimer = null;
+        const bgMusicEl = document.getElementById('bgMusic');
+        bgMusicEl.volume = 0.85;
+
+        function ensureAudioCtx() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Cute UI Sound Effects
+        function playSfx(type = 'pop') {
+            try {
+                ensureAudioCtx();
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'pop') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(520, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.09);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+                    osc.start(now);
+                    osc.stop(now + 0.09);
+                } else if (type === 'dodge') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(320, now);
+                    osc.frequency.exponentialRampToValueAtTime(660, now + 0.11);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+                    osc.start(now);
+                    osc.stop(now + 0.11);
+                } else if (type === 'heartbeat') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(115, now);
+                    osc.frequency.exponentialRampToValueAtTime(55, now + 0.18);
+                    gain.gain.setValueAtTime(0.22, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                } else if (type === 'tada') {
+                    const notes = [523.25, 659.25, 783.99, 1046.5];
+                    notes.forEach((n, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.type = 'triangle';
+                        o.frequency.setValueAtTime(n, now + idx * 0.08);
+                        g.gain.setValueAtTime(0.14, now + idx * 0.08);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.35);
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.start(now + idx * 0.08);
+                        o.stop(now + idx * 0.08 + 0.35);
+                    });
+                }
+            } catch (e) {}
+        }
+
+        // Fallback music box if music.mp3 is missing
+        const jaaneyaMelody = [
+            { f: 392.00, d: 0.38 }, { f: 440.00, d: 0.38 }, { f: 493.88, d: 0.55 }, { f: 587.33, d: 0.75 },
+            { f: 523.25, d: 0.40 }, { f: 493.88, d: 0.40 }, { f: 440.00, d: 0.45 }, { f: 392.00, d: 0.80 },
+            { f: 440.00, d: 0.38 }, { f: 493.88, d: 0.38 }, { f: 523.25, d: 0.50 }, { f: 493.88, d: 0.40 },
+            { f: 440.00, d: 0.45 }, { f: 392.00, d: 0.45 }, { f: 369.99, d: 0.45 }, { f: 392.00, d: 0.95 },
+            { f: 493.88, d: 0.38 }, { f: 587.33, d: 0.42 }, { f: 659.25, d: 0.55 }, { f: 587.33, d: 0.65 },
+            { f: 523.25, d: 0.42 }, { f: 493.88, d: 0.42 }, { f: 440.00, d: 0.85 }
+        ];
+        let noteIdx = 0;
+
+        function playNextMelodyNote() {
+            if (!isMusicPlaying || !usingSynthFallback) return;
+            ensureAudioCtx();
+            const note = jaaneyaMelody[noteIdx % jaaneyaMelody.length];
+            noteIdx++;
+
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const sub = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            sub.type = 'triangle';
+            osc.frequency.setValueAtTime(note.f, now);
+            sub.frequency.setValueAtTime(note.f / 2, now);
+
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.linearRampToValueAtTime(0.065, now + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + note.d * 0.95);
+
+            osc.connect(gain);
+            sub.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(now);
+            sub.start(now);
+            osc.stop(now + note.d);
+            sub.stop(now + note.d);
+
+            synthTimer = setTimeout(playNextMelodyNote, note.d * 1000);
+        }
+
+        function startBackgroundMusic() {
+            if (isMusicPlaying) return;
+            bgMusicEl.play().then(() => {
+                isMusicPlaying = true;
+                usingSynthFallback = false;
+            }).catch(() => {
+                // If music.mp3 fails to load (file missing), fall back to melody on first interaction
+                if (bgMusicEl.error) {
+                    isMusicPlaying = true;
+                    usingSynthFallback = true;
+                    playNextMelodyNote();
+                }
+            });
+        }
+
+        // Try autoplaying immediately on page load
+        window.addEventListener('DOMContentLoaded', startBackgroundMusic);
+        window.addEventListener('load', startBackgroundMusic);
+
+        // Also unlock immediately on her very first touch/click anywhere on the screen
+        ['touchstart', 'pointerdown', 'click'].forEach(evt => {
+            document.addEventListener(evt, () => {
+                startBackgroundMusic();
+            }, { passive: true });
+        });
+
+        // ==========================================
+        // 3. MASCOT EXPRESSION CONTROLLER
+        // ==========================================
+        function setMascotMood(mood) {
+            const eyesNormal = document.getElementById('eyesNormal');
+            const eyesSparkle = document.getElementById('eyesSparkle');
+            const eyesShy = document.getElementById('eyesShy');
+            const eyesSide = document.getElementById('eyesSide');
+            const sweatDrop = document.getElementById('sweatDrop');
+            const coolGlasses = document.getElementById('coolGlasses');
+            const mouthPath = document.getElementById('mouthPath');
+            const cheekL = document.getElementById('cheekL');
+            const cheekR = document.getElementById('cheekR');
+            const pawL = document.getElementById('pawL');
+            const pawR = document.getElementById('pawR');
+            const wrapper = document.getElementById('mascotWrapper');
+
+            // Reset all
+            eyesNormal.classList.add('hidden');
+            eyesSparkle.classList.add('hidden');
+            eyesShy.classList.add('hidden');
+            eyesSide.classList.add('hidden');
+            sweatDrop.classList.add('hidden');
+            coolGlasses.classList.add('hidden');
+            wrapper.classList.remove('heartbeat-anim');
+
+            pawL.setAttribute('cy', '133');
+            pawR.setAttribute('cy', '133');
+            cheekL.setAttribute('rx', '11');
+            cheekR.setAttribute('rx', '11');
+
+            if (mood === 'shy') {
+                eyesNormal.classList.remove('hidden');
+                mouthPath.setAttribute('d', 'M92 99 Q96 105 100 99 Q104 105 108 99');
+                pawL.setAttribute('cy', '115');
+                pawR.setAttribute('cy', '115');
+            } else if (mood === 'sideeye') {
+                eyesSide.classList.remove('hidden');
+                mouthPath.setAttribute('d', 'M94 102 L106 100');
+            } else if (mood === 'nervous') {
+                eyesShy.classList.remove('hidden');
+                sweatDrop.classList.remove('hidden');
+                mouthPath.setAttribute('d', 'M92 103 Q100 96 108 103');
+            } else if (mood === 'pleading') {
+                eyesSparkle.classList.remove('hidden');
+                cheekL.setAttribute('rx', '15');
+                cheekR.setAttribute('rx', '15');
+                mouthPath.setAttribute('d', 'M95 100 Q100 107 105 100');
+                pawL.setAttribute('cy', '112');
+                pawR.setAttribute('cy', '112');
+            } else if (mood === 'blushing') {
+                eyesSparkle.classList.remove('hidden');
+                cheekL.setAttribute('rx', '17');
+                cheekR.setAttribute('rx', '17');
+                wrapper.classList.add('heartbeat-anim');
+                mouthPath.setAttribute('d', 'M93 99 Q100 108 107 99');
+                pawL.setAttribute('cy', '108');
+                pawR.setAttribute('cy', '108');
+            } else if (mood === 'troll') {
+                eyesNormal.classList.remove('hidden');
+                coolGlasses.classList.remove('hidden');
+                mouthPath.setAttribute('d', 'M88 98 Q100 113 112 98');
+            }
+        }
+
+        // ==========================================
+        // 4. 12 STEPS OF WEIRD SUSPENSE & HYPE
+        //    (Zero step numbers shown!)
+        // ==========================================
+        const steps = [
+            {
+                mood: 'shy',
+                title: "Hey Anaya (psycho🎀)...<br>I wanna ask u something 👉👈",
+                sub: "Wait before you tap anything... are you sitting down right now?? 🪑👀",
+                primary: "Tell me tell me!! 👀",
+                secondary: "No I'm standing 🧍‍♀️",
+                dodge: false
+            },
+            {
+                mood: 'sideeye',
+                title: "Wait first check around you...<br>is anyone looking at your phone screen rn?? 🕵️‍♂️",
+                sub: "Lower your brightness a little bit if someone is sitting next to you... this is strictly confidential 🔒🤫",
+                primary: "I'm alone! Tell me tell me!! 🗣️",
+                secondary: "Why so secretive?? 🤨",
+                dodge: false
+            },
+            {
+                mood: 'nervous',
+                title: "Idk if u gonna like it or not... 😬💭",
+                sub: "Actually I was literally staring at my screen thinking whether I should even send you this link or delete it forever...",
+                primary: "Omg stop stalling, tell me!! 😩",
+                secondary: "Okay keep it to yourself 🤐",
+                dodge: true
+            },
+            {
+                mood: 'nervous',
+                title: "Wait... what if you get super angry at me after reading this?? 🥺👉👈",
+                sub: "You already have 'psycho🎀' energy, I need legal protection before I speak!!",
+                primary: "I won't get angry! Tell me tell me!! 😤",
+                secondary: "I will definitely beat you 🔪",
+                dodge: true
+            },
+            {
+                mood: 'sideeye',
+                title: "Hold on, let me calculate the risk first... 🧮📊",
+                sub: "According to my calculations, there is a 73.6% chance you might block me or throw a chappal at me after Step 12...",
+                primary: "I won't block you!! TELL ME!! 😭",
+                secondary: "Block button is ready 🚫",
+                dodge: true
+            },
+            {
+                mood: 'pleading',
+                title: "Okay wait... pinky promise you won't laugh or judge me?? 🤙💛",
+                sub: "Like a real official pinky promise. If you break it, you owe me food.",
+                primary: "Pinky promise!! Now tell me tell me! 🤙✨",
+                secondary: "No promises 💅",
+                dodge: true
+            },
+            {
+                mood: 'shy',
+                title: "Why are my hands actually shaking a little bit typing this... 😭💓",
+                sub: "I have been holding this inside for SO long and nobody else knows about this except me...",
+                primary: "Wait what?! Tell me right now!! 😳",
+                secondary: null,
+                dodge: false
+            },
+            {
+                mood: 'pleading',
+                title: "Okay wait... take a deep breath first 😮‍💨✨",
+                sub: "Because once you read the next screen, there is literally NO going back to how things were 5 minutes ago...",
+                primary: "My heart is beating fast, TELL ME!! 💓",
+                secondary: null,
+                dodge: false
+            },
+            {
+                mood: 'blushing',
+                title: "Wait look at me first... do you already have a tiny guess what I'm about to ask you?? 👀💭",
+                sub: "Be honest psycho🎀... your brain is already running at 200mph right now isn't it??",
+                primary: "Idk!! Just tell me tell me!! 🙈💛",
+                secondary: "Maybe a little bit... 👀",
+                dodge: false
+            },
+            {
+                mood: 'blushing',
+                title: "Okay fine!! It is REALLY important and I need u to listen carefully... 💌✨",
+                sub: "Read every single word on the next screen slowly, okay?? Promise me.",
+                primary: "I'm listening carefully!! Tell me! 🥺",
+                secondary: null,
+                dodge: false
+            },
+            {
+                mood: 'blushing',
+                title: "Okay Anaya... my heart is at 190 BPM right now... 💓🌸",
+                sub: "Tap the button 4 times to unlock what I've been dying to ask you...",
+                primary: "Tap 4x to unlock the truth 🔒💓",
+                isClimaxLock: true
+            }
+        ];
+
+        let currentStep = 0;
+        let lockTapsLeft = 4;
+
+        const mainCard = document.getElementById('mainCard');
+        const titleText = document.getElementById('titleText');
+        const subText = document.getElementById('subText');
+        const buttonContainer = document.getElementById('buttonContainer');
+
+        function renderCurrentStep() {
+            const s = steps[currentStep];
+            setMascotMood(s.mood);
+
+            // Warm romantic blush tint on steps 7-10 to sell the fake-out
+            if (currentStep >= 6 && currentStep <= 10) {
+                document.body.style.backgroundColor = '#FFF5EE';
+            } else {
+                document.body.style.backgroundColor = '#FFFDF0';
+            }
+
+            // Animate card transition
+            mainCard.classList.remove('pop-enter');
+            void mainCard.offsetWidth;
+            mainCard.classList.add('pop-enter');
+
+            titleText.innerHTML = s.title;
+            subText.innerHTML = s.sub;
+            buttonContainer.innerHTML = '';
+
+            if (s.isClimaxLock) {
+                lockTapsLeft = 4;
+                const lockBtn = document.createElement('button');
+                lockBtn.className = 'btn-kawaii-pink w-full py-3.5 px-5 rounded-2xl text-base font-bold tracking-wide';
+                lockBtn.innerHTML = s.primary;
+
+                lockBtn.addEventListener('click', () => {
+                    lockTapsLeft--;
+                    playSfx('heartbeat');
+                    mainCard.classList.remove('shake-it');
+                    void mainCard.offsetWidth;
+                    mainCard.classList.add('shake-it');
+
+                    if (lockTapsLeft === 3) {
+                        lockBtn.innerHTML = "3 more taps... don't freak out 😳💓";
+                    } else if (lockTapsLeft === 2) {
+                        lockBtn.innerHTML = "2 more taps... omg here it comes 🙈✨";
+                    } else if (lockTapsLeft === 1) {
+                        lockBtn.innerHTML = "1 LAST TAP... ARE YOU READY?! 🥺💍";
+                    } else {
+                        renderFinalTrollReveal();
+                    }
+                });
+
+                buttonContainer.appendChild(lockBtn);
+                return;
+            }
+
+            // Primary "Tell me tell me" button
+            const primaryBtn = document.createElement('button');
+            primaryBtn.className = 'btn-kawaii-primary w-full py-3.5 px-5 rounded-2xl text-base font-bold';
+            primaryBtn.innerHTML = s.primary;
+            primaryBtn.addEventListener('click', () => {
+                playSfx('pop');
+                currentStep++;
+                renderCurrentStep();
+            });
+            buttonContainer.appendChild(primaryBtn);
+
+            // Secondary button (either runaway dodge or teasing nudge)
+            if (s.secondary) {
+                const secBtn = document.createElement('button');
+                secBtn.className = 'btn-kawaii-secondary py-2 px-4 rounded-xl text-xs font-bold mt-1';
+                secBtn.innerHTML = s.secondary;
+
+                if (s.dodge) {
+                    const dodgeHandler = (e) => {
+                        e.preventDefault();
+                        playSfx('dodge');
+                        const rx = (Math.random() - 0.5) * 150;
+                        const ry = (Math.random() - 0.5) * 75;
+                        secBtn.style.transform = `translate(${rx}px, ${ry}px) rotate(${(Math.random() - 0.5) * 18}deg)`;
+                        const taunts = [
+                            "Nice try psycho🎀 😝",
+                            "Say tell me tell me!! 😤",
+                            "That button is broken 🤭",
+                            "Just tap the yellow button!! 👇"
+                        ];
+                        secBtn.innerHTML = taunts[Math.floor(Math.random() * taunts.length)];
+                    };
+                    secBtn.addEventListener('mouseover', dodgeHandler);
+                    secBtn.addEventListener('touchstart', dodgeHandler, { passive: false });
+                    secBtn.addEventListener('click', dodgeHandler);
+                } else {
+                    secBtn.addEventListener('click', () => {
+                        playSfx('pop');
+                        currentStep++;
+                        renderCurrentStep();
+                    });
+                }
+
+                buttonContainer.appendChild(secBtn);
+            }
+        }
+
+        // ==========================================
+        // 5. THE ULTIMATE PROPERTY REVEAL (STEP 12)
+        // ==========================================
+        function renderFinalTrollReveal() {
+            playSfx('tada');
+            setMascotMood('troll');
+            document.body.style.backgroundColor = '#FFF9C4';
+            createFloatingFlowers(26);
+
+            mainCard.classList.remove('pop-enter');
+            void mainCard.offsetWidth;
+            mainCard.classList.add('pop-enter');
+
+            titleText.innerHTML = `How much is your total property?? 🧐📝💰`;
+            subText.innerHTML = `And how much land and gold is in your Papa's name?! I need exact calculations before I proceed further in this friendship!! 📈🏦🚜`;
+
+            buttonContainer.innerHTML = `
+                <div class="w-full flex flex-col gap-2.5">
+                    <button onclick="showPropertyReceipt('₹150 + 1 Half-Eaten Dairy Milk 🍫')" class="btn-kawaii-primary w-full py-2.5 px-4 rounded-xl text-sm font-bold text-left flex items-center justify-between">
+                        <span>A) ₹150 & 1 Dairy Milk 🍫</span>
+                        <span>👉</span>
+                    </button>
+                    <button onclick="showPropertyReceipt('50 Acres + 4 Fortuner Cars 🚜✨')" class="btn-kawaii-primary w-full py-2.5 px-4 rounded-xl text-sm font-bold text-left flex items-center justify-between">
+                        <span>B) 50 Acres & 4 Fortuners 🚜</span>
+                        <span>👉</span>
+                    </button>
+                    <button onclick="showPropertyReceipt('0Rs + Pure Psycho🎀 Attitude 🔪')" class="btn-kawaii-pink w-full py-2.5 px-4 rounded-xl text-sm font-bold text-left flex items-center justify-between">
+                        <span>C) I am coming to beat you rn 🔪😤</span>
+                        <span>👉</span>
+                    </button>
+                </div>
+            `;
+        }
+
+        window.showPropertyReceipt = function(choiceText) {
+            playSfx('pop');
+            const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            buttonContainer.innerHTML = `
+                <div class="receipt-box w-full p-3.5 text-left text-xs space-y-1.5 pop-enter">
+                    <div class="font-display font-bold text-sm text-center border-b-2 border-dashed border-[#4A3525] pb-1.5 mb-2">
+                        📜 OFFICIAL PSYCHO🎀 PROPERTY RECEIPT
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-[#7A593E] font-semibold">Candidate:</span>
+                        <span class="font-bold">Anaya (psycho🎀)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-[#7A593E] font-semibold">Time Recorded:</span>
+                        <span class="font-bold">${nowStr}</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-2">
+                        <span class="text-[#7A593E] font-semibold shrink-0">Declared Net Worth:</span>
+                        <span class="font-bold text-right text-[#D97706]">${choiceText}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-[#7A593E] font-semibold">Fell For The Suspense:</span>
+                        <span class="font-bold text-pink-600">1000% YES 😝💛</span>
+                    </div>
+                    <div class="pt-2 text-center font-bold text-[11px] text-[#4A3525]">
+                        📸 Screenshot this & send it back to me rn!!
+                    </div>
+                </div>
+                <button onclick="restartFlow()" class="mt-2 text-xs font-bold underline text-[#7A593E]">
+                    Replay from start ↺
+                </button>
+            `;
+        };
+
+        window.restartFlow = function() {
+            playSfx('pop');
+            currentStep = 0;
+            renderCurrentStep();
+        };
+
+        // Start Step 1
+        renderCurrentStep();
+    </script>
+</body>
+</html>
